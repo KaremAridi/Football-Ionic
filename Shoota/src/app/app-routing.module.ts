@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     //change to splashscreen
-    redirectTo: 'teams',
+    redirectTo: 'leagues',
     pathMatch: 'full'
   },
   {
@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'teams',
     loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'leagues',
+    loadChildren: () => import('./leagues/leagues.module').then( m => m.LeaguesPageModule)
   },
 ];
 
