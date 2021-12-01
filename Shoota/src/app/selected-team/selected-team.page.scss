@@ -1,0 +1,22 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main img{
+    padding: 5px;
+    width: 40%;
+}
+
+.players{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.players img{
+    display: flex;
+}
