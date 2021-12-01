@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'splashscreen',
     pathMatch: 'full'
+  },
+  {
+    path: 'splashscreen',
+    loadChildren: () => import('./splashscreen/splashscreen.module').then( m => m.SplashscreenPageModule)
   },
 ];
 
