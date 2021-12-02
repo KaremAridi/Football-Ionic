@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'signin-favteams',
     loadChildren: () => import('./signin-favteams/signin-favteams.module').then( m => m.SigninFavteamsPageModule)
   },
+  {
+    path: 'signin-favleagues',
+    loadChildren: () => import('./signin-favleagues/signin-favleagues.module').then( m => m.SigninFavleaguesPageModule)
+  },
 ];
 
 @NgModule({
