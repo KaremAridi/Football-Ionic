@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     //change to splashscreen
-    redirectTo: 'selected-matches',
+    redirectTo: 'selected-standings',
     pathMatch: 'full'
   },
   {
