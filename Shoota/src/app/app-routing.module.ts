@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     //change to splashscreen
-    redirectTo: 'signin-favteams',
+    redirectTo: 'signin-favleagues',
     pathMatch: 'full'
   },
   {

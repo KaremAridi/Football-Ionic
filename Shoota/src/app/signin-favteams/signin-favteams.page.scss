@@ -1,16 +1,17 @@
-.main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.main img{
-    width: 50%;
+.main img {
+  width: 50%;
   margin: 5%;
 }
 
-.main a{
-    margin-top: 10px;
-    font-size: 13px;
+.main a {
+  margin-top: 10px;
+  font-size: 13px;
 }
