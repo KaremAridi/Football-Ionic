@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     //change to splashscreen
-    redirectTo: 'signin-favleagues',
+    redirectTo: 'splashscreen',
     pathMatch: 'full'
   },
   {
