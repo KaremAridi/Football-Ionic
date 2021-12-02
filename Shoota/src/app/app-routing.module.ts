@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     //change to splashscreen
-    redirectTo: 'selected-standings',
+    redirectTo: 'signin-favteams',
     pathMatch: 'full'
   },
   {
@@ -47,6 +47,10 @@ const routes: Routes = [
   {
     path: 'selected-standings',
     loadChildren: () => import('./selected-standings/selected-standings.module').then( m => m.SelectedStandingsPageModule)
+  },
+  {
+    path: 'signin-favteams',
+    loadChildren: () => import('./signin-favteams/signin-favteams.module').then( m => m.SigninFavteamsPageModule)
   },
 ];
 
