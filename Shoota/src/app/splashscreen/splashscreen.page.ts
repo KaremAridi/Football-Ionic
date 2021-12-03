@@ -11,7 +11,7 @@ export class SplashscreenPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.navigate(['user'])
+    this.router.navigate(['teams'])
   }
 
 }
