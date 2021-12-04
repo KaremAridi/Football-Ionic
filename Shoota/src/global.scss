@@ -37,3 +37,23 @@ a{
 .nodecoration{
     text-decoration: none;
 }
+
+.btnFooter{
+    margin-top: 5px;
+    color: aliceblue;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+footer{
+    display: flex;
+    background-color: green;
+    height: 70px;
+    width: 280px;
+    border-radius: 5px;
+    position:fixed;
+    bottom: 0;
+    justify-content: space-around;
+    padding-top: 10px;
+}

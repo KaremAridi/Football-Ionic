@@ -2,9 +2,6 @@
   <ion-toolbar>
     <ion-title>Teams & Players</ion-title>
   </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
-  </ion-toolbar>
 </ion-header>
 
 <!-- Make search work -->
@@ -24,3 +21,15 @@
 
   
 </ion-content>
+
+<footer>
+  <ion-button routerLink="/leagues" class="btnFooter" fill="clear">
+    <ion-icon name="trophy-outline"></ion-icon>
+  </ion-button>
+  <ion-button routerLink="/teams" class="btnFooter" fill="clear">
+    <ion-icon name="football-outline"></ion-icon>
+  </ion-button>
+  <ion-button routerLink="/user" class="btnFooter" fill="clear">
+    <ion-icon name="person-circle-outline"></ion-icon>
+  </ion-button>
+</footer>
