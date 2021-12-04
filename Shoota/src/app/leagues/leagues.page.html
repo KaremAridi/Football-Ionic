@@ -10,32 +10,16 @@
 <!-- Make search work -->
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let league of leagues" (click)="selectedLeague()">
       <ion-avatar slot="start">
-        <img src="../../assets/icon/leagues/LaLiga.png" />
+        <img src="{{league.image}}" />
       </ion-avatar>
       <ion-label>
-        <h2>LaLiga</h2>
+        <h2>{{league.title}}</h2>
       </ion-label>
     </ion-item>
 
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="../../assets/icon/leagues/Premier_League.jpg" />
-      </ion-avatar>
-      <ion-label>
-        <h2>Premier Leagues</h2>
-      </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="../../assets/icon/leagues/Champions_League.png" />
-      </ion-avatar>
-      <ion-label>
-        <h2>UEFA Champions League</h2>
-      </ion-label>
-    </ion-item>
+    
   </ion-list>
 </ion-content>
 
