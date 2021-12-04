@@ -21,4 +21,8 @@ export class TeamsPage implements OnInit {
     })
   }
 
+  selectedTeam(){
+    this.router.navigate(['selected-team'])
+  }
+
 }
