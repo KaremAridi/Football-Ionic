@@ -3,7 +3,7 @@
 <ion-content>
   <div class="signin">
     <img src="../../assets/icon/logo.png" alt="Shoota logo" />
-    <form action="">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <ion-label>First Name</ion-label>
       <ion-input placeholder="   ex: Joe" type="text" name="first_name"></ion-input>
       
@@ -20,7 +20,7 @@
       <ion-input placeholder="   ex: Password" type="password" name="password_confirm"></ion-input>
       <div class="signin_button">
       <a (click)="login()">Already a Member?</a>
-      <ion-button color="success" type="success" name="submit">Sign In</ion-button>
+      <ion-button color="success" type="submit" name="submit">Sign In</ion-button>
       </div>
     </form>
   </div>

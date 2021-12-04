@@ -6,6 +6,8 @@ export interface User{
   id: string,
   first_name:string,
   last_name:string,
+  email:string,
+  password:string
 }
 
 @Injectable({
@@ -19,4 +21,9 @@ export class UserServiceService {
   getUserInfo(){
     return this.http.get<[User]>(this.url+"...");
   }
+
+  createUser(user:User){
+    return this.http.post(this.url+"/signup.php",user);
+  }
+
 }
