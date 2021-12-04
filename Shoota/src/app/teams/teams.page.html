@@ -10,8 +10,7 @@
 <!-- Make search work -->
 <ion-content>
   <ion-list>
-    <a class="nodecoration" routerLink="../selected-team">
-      <ion-item>
+      <!-- <ion-item>
         <ion-avatar slot="start">
           <img src="../../assets/icon/teams/Real_Madrid.png" />
         </ion-avatar>
@@ -19,9 +18,7 @@
           <h2>Real Madrid</h2>
         </ion-label>
       </ion-item>
-    </a>
 
-    <a class="nodecoration" routerLink="../selected-team">
       <ion-item>
         <ion-avatar slot="start">
           <img src="../../assets/icon/teams/At_Madrid.png" />
@@ -30,9 +27,7 @@
           <h2>Atletico Madrid</h2>
         </ion-label>
       </ion-item>
-    </a>
 
-    <a class="nodecoration" routerLink="../selected-team">
       <ion-item>
         <ion-avatar slot="start">
           <img src="../../assets/icon/teams/Barcelona.png" />
@@ -40,8 +35,15 @@
         <ion-label>
           <h2>Barcelona</h2>
         </ion-label>
+      </ion-item> -->
+      <ion-item *ngFor="let team of teams">
+        <ion-avatar slot="start">
+          <img src="{{team.image}}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{team.name}}</h2>
+        </ion-label>
       </ion-item>
-    </a>
   </ion-list>
 
   
