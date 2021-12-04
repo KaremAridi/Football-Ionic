@@ -12,7 +12,7 @@ export class SplashscreenPage implements OnInit {
 
   
   ngOnInit() {
-    this.router.navigate(['leagues'])
+    this.router.navigate(['user'])
   }
 
 }
