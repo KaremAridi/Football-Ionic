@@ -25,6 +25,8 @@ export class SigninPage implements OnInit {
     this.service.createUser(user).subscribe(response =>{
       console.log(response);
     })
+    //mbrook save locally and go to new page
+
   }
 
 }

@@ -22,11 +22,20 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit(form:NgForm){
-    console.log("Submitting");
     const user = form.value;
-    this.service.getUser(user.email,user.password).subscribe(response =>{
-      console.log(response);
-    })
+    if(user.email=='' || user.password==''){
+      console.log("empty credentials")
+    }else{
+      this.service.getUser(user.email,user.password).subscribe(response =>{
+        if(response[0]){
+          //mbrook save locally and go to new page
+          this.router.navigate(['user']);
+        }else{
+          console.log("wrong cred");
+        }
+      })
+    }
+
   }
 
 
