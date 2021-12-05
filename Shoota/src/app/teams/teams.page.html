@@ -8,7 +8,7 @@
 <ion-content>
   <ion-list>
     
-      <ion-item *ngFor="let team of teams" (click)="onClick(team.id)">
+      <ion-item *ngFor="let team of teams" (click)="onClick(team.id,team.name,team.image)">
         <ion-avatar slot="start">
           <img src="{{team.image}}" />
         </ion-avatar>

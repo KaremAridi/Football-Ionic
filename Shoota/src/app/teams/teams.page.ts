@@ -21,18 +21,20 @@ export class TeamsPage implements OnInit {
     })
   }
 
-  onClick(id:string){
+  onClick(id:string,name:string,image:string){
     this.service.getPlayers(id).subscribe(response => {
       this.players = response;
-      this.sendDataToNewPage(this.players);
+      this.sendDataToNewPage(this.players,name,image);
       console.log(response);
     })
   }
 
-  sendDataToNewPage(players:Player[]){
+  sendDataToNewPage(players:Player[],name:string,image:string){
     let navigationExtras: NavigationExtras = {
       state: {
-        players: players
+        players: players,
+        name:name,
+        image:image,
       }
     };
     this.router.navigate(['/selected-team'], navigationExtras);

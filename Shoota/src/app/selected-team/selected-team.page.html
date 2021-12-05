@@ -3,13 +3,13 @@
     ><ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Real Madrid</ion-title>
+    <ion-title>{{data.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="main">
-    <img src="../../assets/icon/teams/Real_Madrid.png" alt="" />
+    <img src="{{data.image}}" alt="" />
     <div class="players">
       <img *ngFor="let src of data.players" src="{{src.image}}" alt="{{src.first_name}}">
     </div>
