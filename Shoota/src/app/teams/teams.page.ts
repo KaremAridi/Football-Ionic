@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {Team, TeamsServiceService} from "../service/teams-service.service"
+import { Router, NavigationExtras } from '@angular/router';
+import {Team, Player, TeamsServiceService} from "../service/teams-service.service"
 
 
 @Component({
@@ -11,7 +11,7 @@ import {Team, TeamsServiceService} from "../service/teams-service.service"
 
 export class TeamsPage implements OnInit {
   teams: Team[];
-
+  players: Player[];
   constructor(private router: Router, private service: TeamsServiceService) {}
 
   ngOnInit() {
@@ -21,8 +21,20 @@ export class TeamsPage implements OnInit {
     })
   }
 
-  selectedTeam(){
-    this.router.navigate(['selected-team'])
+  onClick(id:string){
+    this.service.getPlayers(id).subscribe(response => {
+      this.players = response;
+      this.sendDataToNewPage(this.players);
+      console.log(response);
+    })
   }
 
+  sendDataToNewPage(players:Player[]){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        players: players
+      }
+    };
+    this.router.navigate(['/selected-team'], navigationExtras);
+  }
 }

@@ -7,6 +7,13 @@ export interface Team{
   image:string
 }
 
+export interface Player{
+  id: string,
+  first_name:string,
+  last_name:string,
+  image:string,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,5 +28,9 @@ export class TeamsServiceService {
 
   getAllTeams(){
     return this.http.get<[Team]>(this.url+"/getAllTeams.php");
+  }
+
+  getPlayers(id:string){
+    return this.http.get<[Player]>(this.url+"/getPlayersByTeam.php?team_id="+id);
   }
 }

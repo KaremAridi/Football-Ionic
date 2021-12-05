@@ -11,9 +11,7 @@
   <div class="main">
     <img src="../../assets/icon/teams/Real_Madrid.png" alt="" />
     <div class="players">
-      <img src="../../assets/icon/players/Benzema.png" alt="" />
-      <img src="../../assets/icon/players/Benzema.png" alt="" />
-      <img src="../../assets/icon/players/Benzema.png" alt="" />
+      <img *ngFor="let src of data.players" src="{{src.image}}" alt="{{src.first_name}}">
     </div>
   </div>
 </ion-content>
