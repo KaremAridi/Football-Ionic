@@ -24,16 +24,17 @@ export class LeaguesPage implements OnInit {
   onClick(id:string,name:string){
     this.service.getMatch(id).subscribe(response => {
       this.matches = response;
-      this.sendDataToNewPage(this.matches,name);
+      this.sendDataToNewPage(this.matches,name,id);
       console.log(response);
     })
   }
 
-  sendDataToNewPage(matches:Match[],name:string){
+  sendDataToNewPage(matches:Match[],name:string,id:string){
     let navigationExtras: NavigationExtras = {
       state: {
         matches: matches,
-        name:name
+        name:name,
+        id:id,
       }
     };
     this.router.navigate(['/selected-matches'], navigationExtras);

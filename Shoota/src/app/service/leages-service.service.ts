@@ -11,6 +11,15 @@ export interface Match{
   ended:string
 }
 
+export interface Standing{
+  id:string,
+  team_id:string,
+  p:string,
+  diff:string,
+  pts:string,
+  league_Id:string
+}
+
 export interface League{
   id: string,
   title:string,
@@ -33,6 +42,10 @@ export class LeagesServiceService {
 
   getMatch(id:string){
     return this.http.get<[Match]>(this.url+"/getAllMatchesByLeagues.php?league_id="+id);
+  }
+
+  getStanding(id:string){
+    return this.http.get<[Standing]>(this.url+"/getAllStandingsByLeagues.php?league_id="+id);
   }
   
 }

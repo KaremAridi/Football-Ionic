@@ -11,10 +11,10 @@
   <div class="main">
     <div class="league-status">
       <ion-button color="success">Matches</ion-button>
-      <ion-button color="primary" (click) = "toStandings()">Standings</ion-button>
+      <ion-button color="primary" (click) = "onClick(data.id,data.name)">Standings</ion-button>
     </div>
-    <ion-card>
-      <ion-card-content *ngFor="let src of data.matches"> {{src.date}} {{src.team_1}} vs. {{src.team_2}} {{src.score_1}} - {{src.score_2}} {{src.ended}} </ion-card-content>
+    <ion-card *ngFor="let src of data.matches">
+      <ion-card-content> {{src.date}} {{src.team_1}} vs. {{src.team_2}} {{src.score_1}} - {{src.score_2}} {{src.ended}} </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
