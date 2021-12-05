@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>LaLiga</ion-title>
+    <ion-title>{{data.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,19 +14,7 @@
       <ion-button color="primary" (click) = "toStandings()">Standings</ion-button>
     </div>
     <ion-card>
-      <ion-card-content> dd/mm/yyyy Barcelona vs. Real 0 - 0 </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content> dd/mm/yyyy Barcelona vs. Real 0 - 0 </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content> dd/mm/yyyy Barcelona vs. Real 0 - 0 </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content> dd/mm/yyyy Barcelona vs. Real 0 - 0 </ion-card-content>
+      <ion-card-content *ngFor="let src of data.matches"> {{src.date}} {{src.team_1}} vs. {{src.team_2}} {{src.score_1}} - {{src.score_2}} {{src.ended}} </ion-card-content>
     </ion-card>
   </div>
 </ion-content>

@@ -7,7 +7,7 @@
 <!-- Make search work -->
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let league of leagues" (click)="selectedLeague()">
+    <ion-item *ngFor="let league of leagues" (click)="onClick(league.id,league.title)">
       <ion-avatar slot="start">
         <img src="{{league.image}}" />
       </ion-avatar>

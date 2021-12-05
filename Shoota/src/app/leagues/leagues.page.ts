@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {League, LeagesServiceService} from "../service/leages-service.service"
+import {Router, NavigationExtras } from '@angular/router';
+import {Match,League, LeagesServiceService} from "../service/leages-service.service"
 
 @Component({
   selector: 'app-leagues',
@@ -10,6 +10,7 @@ import {League, LeagesServiceService} from "../service/leages-service.service"
 
 export class LeaguesPage implements OnInit {
   leagues: League[];
+  matches: Match[];
 
   constructor(private router: Router, private service: LeagesServiceService) {}
 
@@ -20,8 +21,22 @@ export class LeaguesPage implements OnInit {
     })
   }
 
-  selectedLeague(){
-    this.router.navigate(['selected-matches']);
+  onClick(id:string,name:string){
+    this.service.getMatch(id).subscribe(response => {
+      this.matches = response;
+      this.sendDataToNewPage(this.matches,name);
+      console.log(response);
+    })
+  }
+
+  sendDataToNewPage(matches:Match[],name:string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        matches: matches,
+        name:name
+      }
+    };
+    this.router.navigate(['/selected-matches'], navigationExtras);
   }
 
 }

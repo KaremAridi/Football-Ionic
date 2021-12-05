@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-selected-matches',
@@ -8,7 +8,15 @@ import { Router } from '@angular/router';
 })
 export class SelectedMatchesPage implements OnInit {
 
-  constructor(private router: Router) {}
+  data: any;
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.data = this.router.getCurrentNavigation().extras.state;
+      }
+    });
+  }
 
   ngOnInit() {
   }
