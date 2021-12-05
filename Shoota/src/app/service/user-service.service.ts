@@ -23,7 +23,7 @@ export class UserServiceService {
   }
 
   createUser(user:User){
-    return this.http.post(this.url+"/signup.php",user);
+    return this.http.post(this.url+"/signup.php",JSON.stringify(user));
   }
 
 }

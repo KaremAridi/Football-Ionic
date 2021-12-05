@@ -5,19 +5,19 @@
     <img src="../../assets/icon/logo.png" alt="Shoota logo" />
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <ion-label>First Name</ion-label>
-      <ion-input placeholder="   ex: Joe" type="text" name="first_name"></ion-input>
+      <ion-input ngModel placeholder="   ex: Joe" type="text" name="first_name"></ion-input>
       
       <ion-label>Last Name</ion-label>
-      <ion-input placeholder="   ex: Smith" type="text" name="last_name"></ion-input>
+      <ion-input ngModel placeholder="   ex: Smith" type="text" name="last_name"></ion-input>
       
       <ion-label>Email</ion-label>
-      <ion-input placeholder="   ex: joe@example.com" type="email" name="email"></ion-input>
+      <ion-input ngModel placeholder="   ex: joe@example.com" type="email" name="email"></ion-input>
       
       <ion-label>Password</ion-label>
-      <ion-input placeholder="   ex: Password" type="password" name="password"></ion-input>
+      <ion-input ngModel placeholder="   ex: Password" type="password" name="password"></ion-input>
       
       <ion-label>Confirm Password</ion-label>
-      <ion-input placeholder="   ex: Password" type="password" name="password_confirm"></ion-input>
+      <ion-input ngModel placeholder="   ex: Password" type="password" name="password_confirm"></ion-input>
       <div class="signin_button">
       <a (click)="login()">Already a Member?</a>
       <ion-button color="success" type="submit" name="submit">Sign In</ion-button>

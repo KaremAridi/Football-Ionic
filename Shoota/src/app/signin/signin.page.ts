@@ -23,7 +23,6 @@ export class SigninPage implements OnInit {
     console.log("Submitting");
     const user = form.value;
     this.service.createUser(user).subscribe(response =>{
-      
       console.log(response);
     })
   }
