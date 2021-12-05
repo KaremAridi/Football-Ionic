@@ -1,16 +1,16 @@
 <ion-content>
   <div class="signin">
     <img src="../../assets/icon/logo.png" alt="Shoota logo" />
-    <form action="">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <ion-label>Email</ion-label>
-      <ion-input
+      <ion-input ngModel
         placeholder="   ex: joe@example.com"
         type="email"
         name="email"
       ></ion-input>
 
       <ion-label>Password</ion-label>
-      <ion-input
+      <ion-input ngModel
         placeholder="   ex: Password"
         type="password"
         name="password"
@@ -18,7 +18,7 @@
 
       <div class="signin_button">
         <a (click)="register()">Register Now!</a>
-        <ion-button color="success" type="success" 
+        <ion-button color="success" type="submit" name="submit"
           >Log In</ion-button
         >
       </div>

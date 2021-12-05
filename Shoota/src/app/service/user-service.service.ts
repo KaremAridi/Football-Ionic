@@ -18,8 +18,8 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
   // ADD USER INFO PHP
-  getUserInfo(){
-    return this.http.get<[User]>(this.url+"...");
+  getUser(email:string,pass:string){
+    return this.http.get<[User]>(this.url+"/login.php?email="+email+"&password="+pass);
   }
 
   createUser(user:User){
