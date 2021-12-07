@@ -10,6 +10,11 @@ export interface User{
   password:string
 }
 
+export interface LikedTeam{
+  user_id: string,
+  team_id:string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +29,10 @@ export class UserServiceService {
 
   createUser(user:User){
     return this.http.post(this.url+"/signup.php",JSON.stringify(user));
+  }
+
+  likeTeam(liked_team:LikedTeam){
+    return this.http.post(this.url+"/likesTeam.php",JSON.stringify(liked_team));
   }
 
 }

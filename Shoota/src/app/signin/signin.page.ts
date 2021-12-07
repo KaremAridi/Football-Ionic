@@ -26,7 +26,7 @@ export class SigninPage implements OnInit {
       console.log(response);
     })
     //mbrook save locally and go to new page
-
+    this.router.navigate(['user']);
   }
 
 }
