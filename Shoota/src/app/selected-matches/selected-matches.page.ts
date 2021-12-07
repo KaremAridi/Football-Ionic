@@ -16,6 +16,7 @@ export class SelectedMatchesPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state;
+        console.log("Data: " + this.data);
       }
     });
   }
