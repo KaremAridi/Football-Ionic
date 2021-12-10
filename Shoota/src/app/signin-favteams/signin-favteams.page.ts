@@ -24,5 +24,4 @@ export class SigninFavteamsPage implements OnInit {
   onSubmit(){
 
   }
-
 }
