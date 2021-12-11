@@ -9,44 +9,19 @@
   <div class="main">
     <h3>Your Favorite Teams</h3>
     <div class="user-fav">
-      <ion-card (click) = "toTeam()">
+
+
+      <ion-card *ngFor="let team of teams" (click) = "toTeam(team.id,team.name,team.image)">
         <ion-card-header>
-          <img src="../../assets/icon/teams/Real_Madrid.png" alt="" />
-          <p>Real Madrid</p>
+          <img src="{{team.image}}" alt="{{team.name}}" />
+          <p>{{team.name}}</p>
         </ion-card-header>
       </ion-card>
 
-      <ion-card (click) = "toTeam()">
-        <ion-card-header>
-          <img src="../../assets/icon/teams/Barcelona.png" alt="" />
-          <p>Barcelona</p>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card (click) = "toTeam()">
-        <ion-card-header>
-          <img src="../../assets/icon/teams/At_Madrid.png" alt="" />
-          <p>Atletico Madrid</p>
-        </ion-card-header>
-      </ion-card>
     </div>
 
     <h3>Your Favorite Leagues</h3>
     <div class="user-fav">
-      <ion-card (click) = "toLeague()">
-        <ion-card-header>
-          <img src="../../assets/icon/leagues/LaLiga.png" alt="" />
-          <p>LaLiga</p>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card (click) = "toLeague()">
-        <ion-card-header>
-          <img src="../../assets/icon/leagues/LaLiga.png" alt="" />
-          <p>LaLiga</p>
-        </ion-card-header>
-      </ion-card>
-
       <ion-card (click) = "toLeague()">
         <ion-card-header>
           <img src="../../assets/icon/leagues/LaLiga.png" alt="" />

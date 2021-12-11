@@ -33,4 +33,8 @@ export class TeamsServiceService {
   getPlayers(id:string){
     return this.http.get<[Player]>(this.url+"/getPlayersByTeam.php?team_id="+id);
   }
+
+  getfavTeams(id: string){
+    return this.http.get<[Team]>(this.url+"/getFavTeams.php?user_id="+id);
+  }
 }

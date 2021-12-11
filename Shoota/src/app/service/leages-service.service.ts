@@ -47,5 +47,9 @@ export class LeagesServiceService {
   getStanding(id:string){
     return this.http.get<[Standing]>(this.url+"/getAllStandingsByLeagues.php?league_id="+id);
   }
+
+  getfavLeagues(id: string){
+    return this.http.get<[League]>(this.url+"/getFavLeagues.php?user_id="+id);
+  }
   
 }

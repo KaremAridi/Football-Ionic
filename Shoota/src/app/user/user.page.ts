@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
+import {Team,Player,TeamsServiceService} from "../service/teams-service.service"
+import {League,LeagesServiceService} from "../service/leages-service.service"
 
 @Component({
   selector: 'app-user',
@@ -7,14 +9,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
+  teams: Team[];
+  leagues: League[];
+  players: Player[];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: TeamsServiceService, private serviceLeague: LeagesServiceService) {}
 
   ngOnInit() {
+    this.service.getfavTeams('1').subscribe(response => {
+      this.teams = response;
+      console.log(response);
+    })
+
+    this.serviceLeague.getfavLeagues('1').subscribe(response => {
+      this.leagues = response;
+      console.log(response);
+    })
   }
 
-  toTeam(){
-    this.router.navigate(['selected-team']);
+  toTeam(id:string,name:string,image:string){
+    this.service.getPlayers(id).subscribe(response => {
+      this.players = response;
+      this.sendDataToTeamClicked(this.players,name,image);
+      console.log(response);
+    })
+  }
+
+  sendDataToTeamClicked(players:Player[],name:string,image:string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        players: players,
+        name:name,
+        image:image,
+      }
+    };
+    this.router.navigate(['/selected-team'], navigationExtras);
   }
 
   toLeague(){
