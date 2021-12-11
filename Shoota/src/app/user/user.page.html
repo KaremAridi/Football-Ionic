@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Hello, User</ion-title>
+    <ion-title>Hello, User.Name</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,15 +17,15 @@
           <p>{{team.name}}</p>
         </ion-card-header>
       </ion-card>
-
+ 
     </div>
 
     <h3>Your Favorite Leagues</h3>
     <div class="user-fav">
-      <ion-card (click) = "toLeague()">
+      <ion-card *ngFor="let league of leagues" (click)="toLeague(league.id,league.title)">
         <ion-card-header>
-          <img src="../../assets/icon/leagues/LaLiga.png" alt="" />
-          <p>LaLiga</p>
+          <img src="{{league.image}}" alt="{{league.title}}" />
+          <p>{{league.title}}</p>
         </ion-card-header>
       </ion-card>
     </div>

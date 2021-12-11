@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,NavigationExtras } from '@angular/router';
 import {Team,Player,TeamsServiceService} from "../service/teams-service.service"
-import {League,LeagesServiceService} from "../service/leages-service.service"
+import {League,Match,LeagesServiceService} from "../service/leages-service.service"
 
 @Component({
   selector: 'app-user',
@@ -12,6 +12,7 @@ export class UserPage implements OnInit {
   teams: Team[];
   leagues: League[];
   players: Player[];
+  matches: Match[];
 
   constructor(private router: Router, private service: TeamsServiceService, private serviceLeague: LeagesServiceService) {}
 
@@ -46,8 +47,23 @@ export class UserPage implements OnInit {
     this.router.navigate(['/selected-team'], navigationExtras);
   }
 
-  toLeague(){
-    this.router.navigate(['selected-matches']);
+  toLeague(id:string,name:string){
+    this.serviceLeague.getMatch(id).subscribe(response => {
+      this.matches = response;
+      this.sendDataToLeagueClicked(this.matches,name,id);
+      console.log(response);
+    })
+  }
+
+  sendDataToLeagueClicked(matches:Match[],name:string,id:string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        matches: matches,
+        name:name,
+        id:id,
+      }
+    };
+    this.router.navigate(['/selected-matches'], navigationExtras);
   }
 
 }
