@@ -37,7 +37,8 @@ export class LoginPage implements OnInit {
     }else{
       this.service.getUser(user.email,user.password).subscribe(response =>{
         if(response[0]){
-          //mbrook save locally and go to new page
+          this.service.saveLocally(response[0].id).subscribe(response =>{
+          });
           this.router.navigate(['user']);
         }else{
           console.log("wrong cred");

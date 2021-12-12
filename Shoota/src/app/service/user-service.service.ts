@@ -44,4 +44,9 @@ export class UserServiceService {
     return this.http.get<[User]>(this.url+"/unLikesLeague.php?user_id="+user_id+"&league_id="+league_id);
   }
 
+  saveLocally(user_id:string){
+    console.log(JSON.stringify(user_id));
+    return this.http.post(this.url+"/localstorage.php",JSON.stringify(user_id));
+  }
+
 }
