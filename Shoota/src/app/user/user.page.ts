@@ -83,4 +83,9 @@ export class UserPage implements OnInit {
     });
   }
 
+  signOut(){
+    this.router.navigate(['/login']);
+    this.serviceUser.removeLocalUser().subscribe();
+  }
+
 }

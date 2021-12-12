@@ -51,4 +51,8 @@ export class UserServiceService {
   getLocalUser(){
     return this.http.get<[User]>(this.url+"/getCurrentUser.php");
   }
+  
+  removeLocalUser(){
+    return this.http.get<[User]>(this.url+"/removeCurrentUser.php");
+  }
 }
