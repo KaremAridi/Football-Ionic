@@ -22,6 +22,8 @@ export class SigninPage implements OnInit {
   onSubmit(form:NgForm){
     console.log("Submitting");
     const user = form.value;
+    console.log("user");
+    console.log(user);
     this.service.createUser(user).subscribe(response =>{
       console.log(response);
     })

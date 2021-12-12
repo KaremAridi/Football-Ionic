@@ -1,5 +1,4 @@
 <ion-content>
-  
   <div class="main">
     <img src="../../assets/icon/logo.png" alt="" />
     <h4>Choose Your Favorite Teams!</h4>
@@ -10,15 +9,20 @@
       <ion-avatar slot="end">
         <img src="{{team.image}}" />
       </ion-avatar>
-      <ion-checkbox color="primary" slot="start"></ion-checkbox>
+      <ion-checkbox
+        color="primary"
+        slot="start"
+        value="option"
+        (click)="onChange(team.id)"
+      ></ion-checkbox>
 
       <ion-label>
         <h2>{{team.name}}</h2>
       </ion-label>
     </ion-item>
-    </ion-list>
+  </ion-list>
 
-  <div class="main">
-    <ion-button color="success" expand="block">Shoota!</ion-button>
+  <div class="main" *ngFor="let user of users">
+    <ion-button  color="success" expand="block" (click)= "onSubmit(user.user_id)">Shoota!</ion-button>
   </div>
 </ion-content>
