@@ -22,22 +22,12 @@ export class SigninPage implements OnInit {
   onSubmit(form:NgForm){
     console.log("Submitting");
     this.user = form.value;
-
+    
     this.service.createUser(this.user).subscribe(response =>{
       console.log(response);
     })
-    setTimeout(() => {    this.service.getUser(form.value.email,form.value.password).subscribe(response => {
-      console.log("response");
-      console.log(response[0].id);
-      this.service.saveLocally(response[0].id).subscribe();
-    })
-    
-    this.router.navigate(['signin-favteams']);
-    //mbrook save locally and go to new page
-  }, 1000);
 
-    
-    
+    //bug on signin
+    this.router.navigate(['login']);
   }
-
 }

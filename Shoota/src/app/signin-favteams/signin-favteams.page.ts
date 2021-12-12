@@ -53,6 +53,6 @@ export class SigninFavteamsPage implements OnInit {
       var temp = {user_id:user_id, team_id:this.checkedItems[i]};
       this.service.likeTeam(temp).subscribe();
     }
-    this.router.navigate(['/signin-favleagues']);
+    this.router.navigate(['user']);
   }
 }
