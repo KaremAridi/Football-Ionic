@@ -36,4 +36,12 @@ export class UserServiceService {
     return this.http.post(this.url+"/likesTeam.php",JSON.stringify(liked_team));
   }
 
+  unlikeTeam(user_id:string, team_id:string){
+    return this.http.get<[User]>(this.url+"/unLikesTeam.php?user_id="+user_id+"&team_id="+team_id);
+  }
+
+  unlikeLeague(user_id:string, league_id:string){
+    return this.http.get<[User]>(this.url+"/unLikesLeague.php?user_id="+user_id+"&league_id="+league_id);
+  }
+
 }

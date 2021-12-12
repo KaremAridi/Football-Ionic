@@ -11,10 +11,11 @@
     <div class="user-fav">
 
 
-      <ion-card *ngFor="let team of teams" (click) = "toTeam(team.id,team.name,team.image)">
+      <ion-card *ngFor="let team of teams">
         <ion-card-header>
-          <img src="{{team.image}}" alt="{{team.name}}" />
-          <p>{{team.name}}</p>
+          <div class="delete" (click) = "deleteFavTeam(1,team.id)">X</div>
+          <img src="{{team.image}}" alt="{{team.name}}"  (click) = "toTeam(team.id,team.name,team.image)"/>
+          <p (click) = "toTeam(team.id,team.name,team.image)">{{team.name}}</p>
         </ion-card-header>
       </ion-card>
  
@@ -22,10 +23,11 @@
 
     <h3>Your Favorite Leagues</h3>
     <div class="user-fav">
-      <ion-card *ngFor="let league of leagues" (click)="toLeague(league.id,league.title)">
+      <ion-card *ngFor="let league of leagues">
         <ion-card-header>
-          <img src="{{league.image}}" alt="{{league.title}}" />
-          <p>{{league.title}}</p>
+          <div class="delete" (click) = "deleteFavLeague(1,league.id)">X</div>
+          <img src="{{league.image}}" alt="{{league.title}}" (click)="toLeague(league.id,league.title)"/>
+          <p (click)="toLeague(league.id,league.title)">{{league.title}}</p>
         </ion-card-header>
       </ion-card>
     </div>

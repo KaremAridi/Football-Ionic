@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,NavigationExtras } from '@angular/router';
 import {Team,Player,TeamsServiceService} from "../service/teams-service.service"
 import {League,Match,LeagesServiceService} from "../service/leages-service.service"
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,7 @@ export class UserPage implements OnInit {
   players: Player[];
   matches: Match[];
 
-  constructor(private router: Router, private service: TeamsServiceService, private serviceLeague: LeagesServiceService) {}
+  constructor(private router: Router, private service: TeamsServiceService, private serviceLeague: LeagesServiceService, private serviceUser: UserServiceService) {}
 
   ngOnInit() {
     this.service.getfavTeams('1').subscribe(response => {
@@ -64,6 +65,18 @@ export class UserPage implements OnInit {
       }
     };
     this.router.navigate(['/selected-matches'], navigationExtras);
+  }
+
+  deleteFavTeam(user_id:string, team_id:string){
+    this.serviceUser.unlikeTeam(user_id,team_id).subscribe(response => {
+      console.log("Team Deleted");
+    });
+  }
+
+  deleteFavLeague(user_id:string, league_id:string){
+    this.serviceUser.unlikeLeague(user_id,league_id).subscribe(response => {
+      console.log("League Deleted");
+    });
   }
 
 }
