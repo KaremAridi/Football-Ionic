@@ -21,7 +21,11 @@ export class SigninFavteamsPage implements OnInit {
     })
   }
 
-  onSubmit(){
-
+  onChange(item) {
+    if(this.checkedItems.includes(item)) {
+      this.service.likeTeam()
+    } else {
+      this.checkedItems.push(item)
+    }
   }
 }
