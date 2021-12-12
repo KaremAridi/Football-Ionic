@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Hello, User.Name</ion-title>
+    <ion-title *ngFor="let user of users">Hello, {{user.first_name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,NavigationExtras } from '@angular/router';
 import {Team,Player,TeamsServiceService} from "../service/teams-service.service"
 import {League,Match,LeagesServiceService} from "../service/leages-service.service"
-import { UserServiceService } from '../service/user-service.service';
+import { User, UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-user',
@@ -10,6 +10,7 @@ import { UserServiceService } from '../service/user-service.service';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
+  users: User[];
   teams: Team[];
   leagues: League[];
   players: Player[];
@@ -18,15 +19,18 @@ export class UserPage implements OnInit {
   constructor(private router: Router, private service: TeamsServiceService, private serviceLeague: LeagesServiceService, private serviceUser: UserServiceService) {}
 
   ngOnInit() {
-    this.service.getfavTeams('1').subscribe(response => {
-      this.teams = response;
-      console.log(response);
-    })
-
-    this.serviceLeague.getfavLeagues('1').subscribe(response => {
-      this.leagues = response;
-      console.log(response);
-    })
+    this.serviceUser.getLocalUser().subscribe(response =>{
+      this.users=response;
+      this.service.getfavTeams(this.users[0].id).subscribe(response => {
+        this.teams = response;
+        console.log(response);
+      })
+  
+      this.serviceLeague.getfavLeagues(this.users[0].id).subscribe(response => {
+        this.leagues = response;
+        console.log(response);
+      })
+    });
   }
 
   toTeam(id:string,name:string,image:string){
