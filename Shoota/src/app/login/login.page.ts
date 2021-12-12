@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         if(response[0]){
           this.service.saveLocally(response[0].id).subscribe(response =>{
           });
-          this.router.navigate(['user']);
+          this.router.navigate(['/signin-favteams']);
         }else{
           console.log("wrong cred");
           this.presentToast();
