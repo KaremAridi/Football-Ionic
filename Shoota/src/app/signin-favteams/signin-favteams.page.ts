@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {NgForm} from '@angular/forms';
 import {LikedTeam, User, UserServiceService} from "../service/user-service.service";
 import {Team, Player, TeamsServiceService} from "../service/teams-service.service";
 

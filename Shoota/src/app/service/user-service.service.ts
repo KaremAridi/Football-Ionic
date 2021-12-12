@@ -15,6 +15,11 @@ export interface LikedTeam{
   team_id:string
 }
 
+export interface LikedLeague{
+  user_id: string,
+  league_id:string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +39,10 @@ export class UserServiceService {
 
   likeTeam(liked_team:LikedTeam){
     return this.http.post(this.url+"/likesTeam.php",JSON.stringify(liked_team));
+  }
+
+  likeLeague(liked_league:LikedLeague){
+    return this.http.post(this.url+"/likesLeague.php",JSON.stringify(liked_league));
   }
 
   unlikeTeam(user_id:string, team_id:string){
