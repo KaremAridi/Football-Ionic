@@ -9,7 +9,7 @@ import {UserServiceService} from "../service/user-service.service"
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-
+  user;
   constructor(private router: Router, private service: UserServiceService) {}
 
   ngOnInit() {
@@ -21,17 +21,16 @@ export class SigninPage implements OnInit {
 
   onSubmit(form:NgForm){
     console.log("Submitting");
-    const user = form.value;
-    console.log("user");
-    console.log(user);
-    this.service.createUser(user).subscribe(response =>{
+    this.user = form.value;
+    
+    this.service.createUser(this.user).subscribe(response =>{
       console.log(response);
     })
-    this.service.getUser(user.email,user.password).subscribe(response =>{
-      if(response[0]){
-        this.service.saveLocally(response[0].id).subscribe(response =>{
-        });
-    }})
+
+    this.service.getUser(this.user.email,this.user.password).subscribe(response => {
+      console.log("response");
+      console.log(response);
+    })
     //mbrook save locally and go to new page
     this.router.navigate(['signin-favteams']);
   }

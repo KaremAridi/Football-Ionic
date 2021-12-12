@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title *ngFor="let user of users">Hello, {{user.first_name}}</ion-title>
-    <ion-buttons slot="end" (click) = "removeLocalUser()">
+    <ion-buttons slot="end" (click) = "signOut()">
       <ion-icon name="log-out-outline" style="font-size: 20px; padding-right: 10px;"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
