@@ -45,8 +45,11 @@ export class UserServiceService {
   }
 
   saveLocally(user_id:string){
-    console.log(JSON.stringify(user_id));
     return this.http.post(this.url+"/localstorage.php",JSON.stringify(user_id));
+  }
+
+  getLocalUser(email:string,pass:string){
+    return this.http.get<[User]>(this.url+"/login.php?email="+email+"&password="+pass);
   }
 
 }
