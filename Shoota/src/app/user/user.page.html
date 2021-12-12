@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title *ngFor="let user of users">Hello, {{user.first_name}}</ion-title>
-    <ion-buttons slot="end" (click) = "signOut()">
+    <ion-buttons slot="end" (click) = "removeLocalUser()">
       <ion-icon name="log-out-outline" style="font-size: 20px; padding-right: 10px;"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
@@ -10,13 +10,13 @@
 <ion-content>
   <div class="banner"></div>
   <div class="main">
-    <h3>Your Favorite Teams</h3>
-    <div class="user-fav">
+    <h3>Your Favorite Teams <a class="add"  href="/signin-favteams">+</a></h3>
+    <div class="user-fav" *ngFor="let user of users">
 
 
       <ion-card *ngFor="let team of teams">
         <ion-card-header>
-          <div class="delete" (click) = "deleteFavTeam(1,team.id)">X</div>
+          <div class="delete" (click) = "deleteFavTeam(user.id,team.id)">X</div>
           <img src="{{team.image}}" alt="{{team.name}}"  (click) = "toTeam(team.id,team.name,team.image)"/>
           <p (click) = "toTeam(team.id,team.name,team.image)">{{team.name}}</p>
         </ion-card-header>
@@ -24,11 +24,11 @@
  
     </div>
 
-    <h3>Your Favorite Leagues</h3>
-    <div class="user-fav">
+    <h3>Your Favorite Leagues  <a class="add"  href="/signin-favleagues">+</a> </h3>
+    <div class="user-fav" *ngFor="let user of users">
       <ion-card *ngFor="let league of leagues">
         <ion-card-header>
-          <div class="delete" (click) = "deleteFavLeague(1,league.id)">X</div>
+          <div class="delete" (click) = "deleteFavLeague(user.id,league.id)">X</div>
           <img src="{{league.image}}" alt="{{league.title}}" (click)="toLeague(league.id,league.title)"/>
           <p (click)="toLeague(league.id,league.title)">{{league.title}}</p>
         </ion-card-header>

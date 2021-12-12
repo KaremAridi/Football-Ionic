@@ -27,8 +27,13 @@ export class SigninPage implements OnInit {
     this.service.createUser(user).subscribe(response =>{
       console.log(response);
     })
+    this.service.getUser(user.email,user.password).subscribe(response =>{
+      if(response[0]){
+        this.service.saveLocally(response[0].id).subscribe(response =>{
+        });
+    }})
     //mbrook save locally and go to new page
-    this.router.navigate(['login']);
+    this.router.navigate(['signin-favteams']);
   }
 
 }
